@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MK_Font</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>MK_Font</h1>
+      <p>A custom font crafted from real handwriting</p>
+    </section>
+
+    <!-- LIVE PREVIEW -->
+    <section class="preview-section">
+      <h2>Try the Font</h2>
+
+      <textarea id="inputBox">
+The quick brown fox jumps over the lazy dog
+      </textarea>
+
+      <div id="outputBox"></div>
+
+      <p class="hint">💡 Tip: Type "₹" or "€" to see My Signatures</p>
+    </section>
+
+    <!-- CHARACTER SHOWCASE -->
+    <section class="showcase">
+      <h2>Character Preview</h2>
+
+      <div class="grid">
+        <div class="card">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z </div>
+        <div class="card">a b c d e f g h i j k l m n o p q r s t u v w x y z </div>
+      </div>
+    </section>
+
+    <!-- SIGNATURE SECTION -->
+    <section class="signature">
+      <h2>Name & Signature</h2>
+
+      <div class="signature-text">Manan Kohli</div>
+
+      <div class="symbols">
+        <div class="symbol-box">
+          <span>₹</span>
+          <p>Rupee</p>
+        </div>
+
+        <div class="symbol-box">
+          <span>€</span>
+          <p>Euro</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>Created by Manan Kohli</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const input = document.getElementById("inputBox");
+    const output = document.getElementById("outputBox");
+
+    function convertText(text) {
+      return text
+        .replace(/rupee/gi, "₹")
+        .replace(/euro/gi, "€");
+    }
+
+    function updatePreview() {
+      const converted = convertText(input.value);
+      output.textContent = converted;
+    }
+
+    input.addEventListener("input", updatePreview);
+
+    // initial load
+    updatePreview();
+  </script>
+
+</body>
+</html>
